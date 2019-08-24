@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../pages/Home'
-import Hystory from '../pages/Hystory'
+import History from '../pages/History'
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/hystory',
-      name: 'Hystory',
-      component: Hystory
+      path: '/history',
+      name: 'History',
+      component: History
     }
   ]
 })
