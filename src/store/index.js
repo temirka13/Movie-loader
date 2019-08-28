@@ -14,6 +14,7 @@ let getlocalStorage = () => {
     }
   } else {
     localStorage.setItem('history_movies', JSON.stringify([]))
+    historyInitialState = []
   }
 }
 
@@ -52,7 +53,6 @@ export const store = new Vuex.Store({
         state.history = history
         localStorage.setItem('history_movies', JSON.stringify(history))
       }
-
       // localStorage.setItem("history_movie", auth);
       // state.history.push(movie)
     }

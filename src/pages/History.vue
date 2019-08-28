@@ -7,6 +7,7 @@
             <span class="sr-only">Loading...</span>
           </div>
         </div>
+        <h2 v-if="movies.length <= 0">You have no watched movies</h2>
         <MovieCard class="hystory-movie" v-else v-for="(movie, index) in movies" :key="index" :movie="movie"/>
       </div>
     </div>
