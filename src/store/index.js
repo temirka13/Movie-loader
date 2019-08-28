@@ -5,11 +5,15 @@ Vue.use(Vuex)
 let historyInitialState
 let getlocalStorage = () => {
   let localHistory = JSON.parse(localStorage.getItem('history_movies'))
-  console.log(localHistory)
-  if (localHistory.length < 1) {
-    historyInitialState = []
+  if (localHistory) {
+    console.log(localHistory)
+    if (localHistory.length < 1) {
+      historyInitialState = []
+    } else {
+      historyInitialState = localHistory
+    }
   } else {
-    historyInitialState = localHistory
+    localStorage.setItem('history_movies', JSON.stringify([]))
   }
 }
 
