@@ -16,17 +16,18 @@ export default {
     }
   },
   created () {
-    const genresUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=c54153caa7091ff41e0586b9f2a23eb1&language=en-US'
-    axios.get(genresUrl).then((res) => {
-      console.log(res.data)
-      console.log(res.data)
-      this.genres = res.data.genres
-    })
+    this.getGenres()
   },
   methods: {
     setGenre (id) {
       this.$store.commit('SET_GENRE', id)
-      this.query = ''
+      this.$router.push({ path: '/', query: { movie_id: id } })
+    },
+    getGenres () {
+      const genresUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=c54153caa7091ff41e0586b9f2a23eb1&language=en-US'
+      axios.get(genresUrl).then((res) => {
+        this.genres = res.data.genres
+      })
     }
   }
 }

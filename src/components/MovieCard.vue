@@ -1,7 +1,7 @@
 <template>
   <div class="movie-card col-md-4 mb20">
       <div style="width: 18rem;">
-        <div class="card-body">
+        <div v-if="movie" class="card-body" @click="$router.push({ path: `/movie/${movie.id}`, params: { movie_id: movie.id } })">
             <img v-if="movie.poster_path" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" class="card-img-top poster" alt="404">
             <div v-else class="poster404">
               <p class="poster404-title">Poster not found</p>
@@ -16,7 +16,9 @@
 export default {
   props: ['movie'],
   data () {
-    return {}
+    return {
+      poster_path: ''
+    }
   }
 }
 </script>
